@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
+	//This spawns random enemies
 
-	public GameObject[] enemies;
-	public Vector3 spawnValues;
-	public float spawnWait;
+	public GameObject[] enemies;//Types of enemies
+	public Vector3 spawnValues;//Spawn co ords
+	public float spawnWait;//Wait between spanws
 	public float spawnMostWait;
 	public float spawnLeastWait;
-	public int startWait;
+	public int startWait;//Before first enemy spawned
 
 	public bool stop;
 
-	int randEnemy;
+	int randEnemy;//Random value
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (waitSpawner ());
+		StartCoroutine (waitSpawner ());//Start spawning
 	}
 
 	// Update is called once per frame
 	void Update () {
-		spawnWait = Random.Range (spawnLeastWait, spawnMostWait);
+		spawnWait = Random.Range (spawnLeastWait, spawnMostWait);//Spawn in random position
 	}
 
 	IEnumerator waitSpawner(){
 		yield return new WaitForSeconds(startWait);
 
 		while (!stop){
-			randEnemy = Random.Range (0, 2);
+			randEnemy = Random.Range (0, enemies.Length);
 
 			Vector3 spawnPosition = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z));
 

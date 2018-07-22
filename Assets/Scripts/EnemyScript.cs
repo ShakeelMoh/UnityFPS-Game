@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
-
+	//Enemy behaviour
 	//public TextMesh scoreText = (TextMesh) GameObject.Find("Score").GetComponent(typeof(TextMesh));
 	public TextMesh scoreText;
 	bool hit = false;
@@ -19,7 +19,7 @@ public class EnemyScript : MonoBehaviour {
 	void Update () {
 		
 	}
-
+	//Detect if collosion and play sound and destruct object
 	IEnumerator OnCollisionEnter (Collision other){
 		if (other.gameObject.name != "Plane") {
 			Debug.Log ("Hit!");
